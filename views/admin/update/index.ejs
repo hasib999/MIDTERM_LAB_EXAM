@@ -7,7 +7,7 @@
 <body>
     <fieldset>
         <legend>Update Employee</legend>
-        <form method="POST" name="myForm">
+        <form method="POST" name="myForm" onsubmit="return(validate());">
             <p>Username</p>
             <input style="height: 3%;" name="username" type="text" value="<%= list[0].username%>" readonly>
             <p>Password</p>
@@ -21,5 +21,48 @@
         </form>
         <a href="/logout">Logout</a>
     </fieldset>
+    <script>
+        function validate(){
+            var x=document.myForm.password;
+            var y=document.myForm.name;
+            var z=document.myForm.phone;
+
+            var msg = document.getElementById('err');
+            var color='#ff6666';
+
+            if(x.value=="")
+            {
+                alert("Password Required");
+                x.focus();
+                return false;
+            }
+            else if(x.value!="")
+            {
+                if(!(x.value.length >= 8)){
+                    message.style.color=color;
+                    message.innerHTML="Password Length greater than or Equal 8!";
+                    x.focus();
+                    return false;
+                }
+            }
+            
+            if(y.value=="")
+            {
+                alert("Name Required");
+                y.focus();
+                return false;
+            }
+            
+            if(z.value=="")
+            {
+                alert("Phone number Required");
+                z.focus();
+                return false;
+            }
+
+            return (true);
+
+        }
+    </script>
 </body>
 </html>
