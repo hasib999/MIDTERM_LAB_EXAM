@@ -151,5 +151,20 @@ module.exports =
 				callback(false);
 			}
 		});
+	},
+	removep: function(user, callback)
+  	{
+		var sql = "DELETE FROM `product` WHERE `id`='"+user+"';";
+		db.execute(sql, function(result)
+    	{
+			if(result)
+			{
+				callback(true);
+			}
+			else
+			{
+				callback(false);
+			}
+		});
 	}
 }

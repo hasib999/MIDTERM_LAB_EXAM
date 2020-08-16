@@ -58,4 +58,39 @@ router.post('/update/:id',function(req,res)
 })
 
 
+router.get('/delete/:id',function(req,res)
+{
+    if(req.session.status==2)
+    {
+        var user={
+            id: req.params.id,
+            name: req.body.name,
+            price:req.body.price
+        }
+        login.getp(user,function(result)
+        {
+            res.render('employee/delete/index',{list:result});
+        });
+    }
+})
+router.post('/delete/:id', function(req, res)
+{
+    if(req.session.status==2)
+    {
+        if(req.body.hasOwnProperty("YES"))
+        {
+            login.removep(req.params.id, function(result)
+            {
+                res.redirect('/employee/productlist');
+            });
+        }
+    
+        else if (req.body.hasOwnProperty("NO"))
+        {
+            res.redirect('/employee/productlist');
+        }
+    }
+});
+
+
 module.exports=router;
