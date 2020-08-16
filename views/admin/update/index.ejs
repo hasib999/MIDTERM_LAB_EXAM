@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Employee</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Update Employee</legend>
+        <form method="POST" name="myForm">
+            <p>Username</p>
+            <input style="height: 3%;" name="username" type="text" value="<%= list[0].username%>" readonly>
+            <p>Password</p>
+            <input style="height: 3%;" name="password" id="password" type="password" value="<%= list[0].password%>">
+            <p>Name</p>
+            <input style="height: 3%;" name="name" type="text" value="<%= list[0].name%>">
+            <p>Phone</p>
+            <input style="height: 3%;" name="phone" type="text" value="<%= list[0].phone%>">
+        
+            <input style="height: 3%;" type="Submit"><br><br><br>
+        </form>
+        <a href="/logout">Logout</a>
+    </fieldset>
+</body>
+</html>

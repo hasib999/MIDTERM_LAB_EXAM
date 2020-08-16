@@ -19,7 +19,7 @@ module.exports =
 	},
 	addEmp: function(user,callback)
 	{
-		var sql="INSERT INTO `login` (`username`,`password`,`name`,`gender`,`phone`,`designation`,`status`) VALUES ('"+user.username+"','"+user.password+"','"+user.name+"','"+user.gender+"','"+user.phone+"','"+user.designation+"','2');";
+		var sql="INSERT INTO `login` (`username`,`password`,`name`,`phone`,`status`) VALUES ('"+user.username+"','"+user.password+"','"+user.name+"','"+user.phone+"','2');";
 		db.execute(sql,function(result){
 			if(result)
 			{
@@ -63,7 +63,7 @@ module.exports =
 	},
 	update : function(user,callback)
 	{
-		var sql = "UPDATE `login` SET `password`='"+user.password+"' , `name`='"+user.name+"',`gender`='"+user.gender+"',`phone`='"+user.phone+"',`designation`='"+user.designation+"' WHERE `username`='"+user.username+"';";	
+		var sql = "UPDATE `login` SET `password`='"+user.password+"' , `name`='"+user.name+"',`phone`='"+user.phone+"' WHERE `username`='"+user.username+"';";	
 		db.execute(sql,function(result)
 		{
 			if(result)
