@@ -31,9 +31,38 @@ module.exports =
 			}
 		})                                                   
 	},
+	addproduct: function(user,callback)
+	{
+		var sql="INSERT INTO `product` (`name`,`quantity`,`price`) VALUES ('"+user.name+"','"+user.quantity+"','"+user.price+"');";
+		db.execute(sql,function(result){
+			if(result)
+			{
+				callback(true);
+			}
+			else
+			{
+				callback(false);
+			}
+		})                                                   
+	},
 	getEmp : function(callback)
 	{
 		var sql ="SELECT * FROM `login` WHERE `status`='2';";
+		db.getResults(sql, function(result)
+    	{
+			if(result.length > 0)
+			{
+				callback(result);
+			}
+			else
+			{
+				callback([]);
+			}
+		});
+	},
+	getproduct : function(callback)
+	{
+		var sql ="SELECT * FROM `product`;";
 		db.getResults(sql, function(result)
     	{
 			if(result.length > 0)

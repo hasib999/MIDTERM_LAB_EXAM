@@ -10,6 +10,8 @@ var admin= require('./controllers/admin');
 var employee = require('./controllers/employee');
 var reg = require('./controllers/register');
 var emplist = require('./controllers/allemplist');
+var addpro = require('./controllers/addproduct');
+var prolist = require('./controllers/productlist');
 
 var app =express();
 
@@ -31,6 +33,8 @@ app.use('/admin',admin);
 app.use('/admin/emplist',emplist);
 app.use('/admin/register',reg);
 app.use('/employee',employee);
+app.use('/employee/addproduct',addpro);
+app.use('/employee/productlist',prolist);
 
 
 app.get('/', function(req, res)
