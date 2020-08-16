@@ -10,6 +10,10 @@ router.get('/',function(req,res){
     {
         res.render('admin/index'); 
     }
+    else
+    {
+        res.redirect("/login");
+    }
 })
 
 module.exports=router;

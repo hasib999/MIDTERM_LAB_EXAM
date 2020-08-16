@@ -4,8 +4,10 @@ var bodyParser = require('body-parser');
 
 
 
-var login =require('./controllers/login');
-
+var login = require('./controllers/login');
+var logout = require('./controllers/logout');
+var admin= require('./controllers/admin');
+var employee = require('./controllers/employee');
 
 var app =express();
 
@@ -21,7 +23,10 @@ app.use(function(req, res, next)
   next();
 });
 
-app.use('login',login);
+app.use('/login',login);
+app.use('/logout',logout);
+app.use('/admin',admin);
+app.use('/employee',employee);
 
 app.get('/', function(req, res)
 {

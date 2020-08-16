@@ -8,7 +8,6 @@ router.get('/',function(req,res)
 {
     if(req.session.status == 2)
     {
-        console.log(req.body);
         res.render('employee/index');
     }
     else
