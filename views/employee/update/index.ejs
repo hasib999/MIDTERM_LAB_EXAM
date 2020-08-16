@@ -2,9 +2,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Product</title>
+    <title>Update Employee</title>
 </head>
 <body>
-    
+    <fieldset>
+        <legend>Update Employee</legend>
+        <form method="POST" name="myForm">
+            <p>Id</p>
+            <input type="text" name="id" value="<%= list[0].id%>" readonly>
+            <p>Product name</p>
+            <input style="height: 3%;" name="name" type="text" value="<%= list[0].name%>" >
+            <p>quantity</p>
+            <input style="height: 3%;" name="quantity" type="text" value="<%= list[0].quantity%>">
+            <p>Price</p>
+            <input style="height: 3%;" name="price" type="text" value="<%= list[0].price%>">
+        
+            <input style="height: 3%;" type="Submit"><br><br><br>
+        </form>
+        <a href="/logout">Logout</a>
+    </fieldset>
 </body>
 </html>

@@ -16,5 +16,46 @@ router.get('/',function(req,res)
     }
 })
 
+router.get('/update/:id',function(req,res)
+{
+    if(req.session.status==2)
+    {
+        var user={
+            id: req.params.id
+        }
+        login.getp(user,function(result)
+        {
+            res.render('employee/update/index',{list:result});
+        });
+    }
+    else
+    {
+        res.redirect('/login');
+    }
+    
+});
+
+router.post('/update/:id',function(req,res)
+{
+    if(req.session.status==2)
+    {
+        var info=
+        {
+            id: req.body.id,
+            name: req.body.name,
+            quantity: req.body.quantity,
+            price: req.body.price
+        }
+        login.updatep(info,function(result)
+        {
+            res.redirect('/employee/productlist');
+        })
+    }
+    else
+    {
+        res.redirect('/login');
+    }
+})
+
 
 module.exports=router;

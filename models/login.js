@@ -90,9 +90,40 @@ module.exports =
 			}
 		});
 	},
+	getp: function(user,callback)
+	{
+		var sql ="SELECT * FROM `product` WHERE `id`='"+user.id+"';";
+		db.getResults(sql, function(result)
+    	{
+			if(result.length > 0)
+			{
+				callback(result);
+			}
+			else
+			{
+				callback([]);
+			}
+		});
+	},
 	update : function(user,callback)
 	{
 		var sql = "UPDATE `login` SET `password`='"+user.password+"' , `name`='"+user.name+"',`phone`='"+user.phone+"' WHERE `username`='"+user.username+"';";	
+		db.execute(sql,function(result)
+		{
+			if(result)
+			{
+				callback(true);
+			}
+			else
+			{
+				callback(false);
+			}
+		});
+	
+	},
+	updatep : function(user,callback)
+	{
+		var sql = "UPDATE `product` SET `name`='"+user.name+"',`quantity`='"+user.quantity+"',`price`='"+user.price+"' WHERE `id`='"+user.id+"';";	
 		db.execute(sql,function(result)
 		{
 			if(result)
